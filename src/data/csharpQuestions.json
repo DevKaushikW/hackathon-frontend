@@ -1,0 +1,547 @@
+{
+  "questions": {
+    "5": [
+      {
+        "question": "What is the correct way to declare a variable in C#?",
+        "options": ["int x;", "var x;", "int x = 0;", "All of the above"],
+        "answer": "All of the above"
+      },
+      {
+        "question": "Which keyword is used to define a constant in C#?",
+        "options": ["const", "readonly", "static", "final"],
+        "answer": "const"
+      },
+      {
+        "question": "What is the default value of a bool variable in C#?",
+        "options": ["true", "false", "null", "0"],
+        "answer": "false"
+      },
+      {
+        "question": "Which of the following is a value type in C#?",
+        "options": ["int", "string", "object", "class"],
+        "answer": "int"
+      },
+      {
+        "question": "How do you write a single-line comment in C#?",
+        "options": ["// comment", "/* comment */", "# comment", "<!-- comment -->"],
+        "answer": "// comment"
+      },
+      {
+        "question": "Which method is the entry point of a C# program?",
+        "options": ["Main", "Start", "Init", "Run"],
+        "answer": "Main"
+      },
+      {
+        "question": "What is the correct syntax to create an instance of a class?",
+        "options": ["MyClass obj = new MyClass();", "MyClass obj;", "new MyClass obj;", "obj = MyClass();"],
+        "answer": "MyClass obj = new MyClass();"
+      },
+      {
+        "question": "Which operator is used for equality comparison in C#?",
+        "options": ["=", "==", "===", "!="],
+        "answer": "=="
+      },
+      {
+        "question": "What is the size of an int in C#?",
+        "options": ["2 bytes", "4 bytes", "8 bytes", "Depends on platform"],
+        "answer": "4 bytes"
+      },
+      {
+        "question": "Which namespace contains fundamental classes in C#?",
+        "options": ["System", "Microsoft", "Core", "Base"],
+        "answer": "System"
+      }
+    ],
+    "4": [
+      {
+        "question": "What is the difference between 'struct' and 'class' in C#?",
+        "options": [
+          "Structs are value types, classes are reference types",
+          "Structs are reference types, classes are value types",
+          "Both are value types",
+          "Both are reference types"
+        ],
+        "answer": "Structs are value types, classes are reference types"
+      },
+      {
+        "question": "Which keyword is used to inherit a class in C#?",
+        "options": ["extends", "inherits", ":", "base"],
+        "answer": ":"
+      },
+      {
+        "question": "What is the purpose of the 'using' statement in C#?",
+        "options": [
+          "To include namespaces",
+          "To manage resource disposal",
+          "To declare variables",
+          "To handle exceptions"
+        ],
+        "answer": "To manage resource disposal"
+      },
+      {
+        "question": "Which of the following is NOT a valid access modifier in C#?",
+        "options": ["public", "private", "protected", "internalprotected"],
+        "answer": "internalprotected"
+      },
+      {
+        "question": "What does the 'static' keyword mean in C#?",
+        "options": [
+          "Member belongs to the type itself, not instances",
+          "Member can be changed",
+          "Member is private",
+          "Member is abstract"
+        ],
+        "answer": "Member belongs to the type itself, not instances"
+      },
+      {
+        "question": "What is the difference between 'break' and 'continue' statements?",
+        "options": [
+          "'break' exits loop, 'continue' skips to next iteration",
+          "'continue' exits loop, 'break' skips to next iteration",
+          "Both exit loop",
+          "Both skip iteration"
+        ],
+        "answer": "'break' exits loop, 'continue' skips to next iteration"
+      },
+      {
+        "question": "What is the purpose of the 'params' keyword?",
+        "options": [
+          "Allows a method to accept a variable number of arguments",
+          "Declares a parameter",
+          "Specifies parameter type",
+          "Defines a delegate"
+        ],
+        "answer": "Allows a method to accept a variable number of arguments"
+      },
+      {
+        "question": "Which of these is a nullable type in C#?",
+        "options": ["int?", "int", "string", "bool"],
+        "answer": "int?"
+      },
+      {
+        "question": "What is the output of 'Console.WriteLine(5 + \"5\");'?",
+        "options": ["10", "55", "Error", "5 5"],
+        "answer": "55"
+      },
+      {
+        "question": "What is the purpose of the 'override' keyword?",
+        "options": [
+          "To provide a new implementation of a virtual method",
+          "To hide a method",
+          "To declare a method",
+          "To call base method"
+        ],
+        "answer": "To provide a new implementation of a virtual method"
+      }
+    ],
+    "3": [
+      {
+        "question": "What is the difference between 'abstract' and 'virtual' methods?",
+        "options": [
+          "Abstract methods have no implementation, virtual methods have default implementation",
+          "Virtual methods have no implementation, abstract methods have default implementation",
+          "Both have no implementation",
+          "Both have default implementation"
+        ],
+        "answer": "Abstract methods have no implementation, virtual methods have default implementation"
+      },
+      {
+        "question": "What is the use of 'sealed' keyword in C#?",
+        "options": [
+          "Prevents a class from being inherited",
+          "Prevents a method from being overridden",
+          "Both of the above",
+          "None of the above"
+        ],
+        "answer": "Both of the above"
+      },
+      {
+        "question": "What is the difference between 'throw' and 'throw ex'?",
+        "options": [
+          "'throw' preserves stack trace, 'throw ex' resets stack trace",
+          "'throw ex' preserves stack trace, 'throw' resets stack trace",
+          "Both reset stack trace",
+          "Both preserve stack trace"
+        ],
+        "answer": "'throw' preserves stack trace, 'throw ex' resets stack trace"
+      },
+      {
+        "question": "What is the purpose of 'lock' statement?",
+        "options": [
+          "To ensure thread safety by locking a resource",
+          "To declare a variable",
+          "To handle exceptions",
+          "To create a delegate"
+        ],
+        "answer": "To ensure thread safety by locking a resource"
+      },
+      {
+        "question": "What is covariance and contravariance in C#?",
+        "options": [
+          "Covariance allows a method to return a more derived type, contravariance allows a method to accept less derived type",
+          "Covariance allows a method to accept less derived type, contravariance allows a method to return more derived type",
+          "Both allow method overloading",
+          "Both allow operator overloading"
+        ],
+        "answer": "Covariance allows a method to return a more derived type, contravariance allows a method to accept less derived type"
+      },
+      {
+        "question": "What is the difference between 'IEnumerable' and 'IQueryable'?",
+        "options": [
+          "IEnumerable executes queries in memory, IQueryable executes queries on data source",
+          "IQueryable executes queries in memory, IEnumerable executes queries on data source",
+          "Both execute queries in memory",
+          "Both execute queries on data source"
+        ],
+        "answer": "IEnumerable executes queries in memory, IQueryable executes queries on data source"
+      },
+      {
+        "question": "What is the use of 'dynamic' keyword?",
+        "options": [
+          "Allows late binding",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Allows late binding"
+      },
+      {
+        "question": "What is the difference between 'const' and 'readonly'?",
+        "options": [
+          "const is compile-time constant, readonly is runtime constant",
+          "readonly is compile-time constant, const is runtime constant",
+          "Both are compile-time constants",
+          "Both are runtime constants"
+        ],
+        "answer": "const is compile-time constant, readonly is runtime constant"
+      },
+      {
+        "question": "What is the purpose of 'partial' keyword?",
+        "options": [
+          "Allows splitting a class or method across multiple files",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Allows splitting a class or method across multiple files"
+      },
+      {
+        "question": "What is the difference between 'async' and 'await'?",
+        "options": [
+          "async marks a method as asynchronous, await waits for the task to complete",
+          "await marks a method as asynchronous, async waits for the task to complete",
+          "Both mark a method as asynchronous",
+          "Both wait for the task to complete"
+        ],
+        "answer": "async marks a method as asynchronous, await waits for the task to complete"
+      }
+    ],
+    "2": [
+      {
+        "question": "What is the difference between 'var' and 'dynamic'?",
+        "options": [
+          "var is statically typed, dynamic is dynamically typed",
+          "dynamic is statically typed, var is dynamically typed",
+          "Both are statically typed",
+          "Both are dynamically typed"
+        ],
+        "answer": "var is statically typed, dynamic is dynamically typed"
+      },
+      {
+        "question": "What is the use of 'nameof' operator?",
+        "options": [
+          "Returns the name of a variable, type, or member as a string",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Returns the name of a variable, type, or member as a string"
+      },
+      {
+        "question": "What is the difference between 'string' and 'StringBuilder'?",
+        "options": [
+          "string is immutable, StringBuilder is mutable",
+          "StringBuilder is immutable, string is mutable",
+          "Both are immutable",
+          "Both are mutable"
+        ],
+        "answer": "string is immutable, StringBuilder is mutable"
+      },
+      {
+        "question": "What is the purpose of 'using static'?",
+        "options": [
+          "Allows static members to be accessed without class name",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Allows static members to be accessed without class name"
+      },
+      {
+        "question": "What is the difference between 'Task.Run' and 'Task.Factory.StartNew'?",
+        "options": [
+          "Task.Run is a simpler way to start a task, Task.Factory.StartNew offers more options",
+          "Task.Factory.StartNew is simpler, Task.Run offers more options",
+          "Both are the same",
+          "Both are deprecated"
+        ],
+        "answer": "Task.Run is a simpler way to start a task, Task.Factory.StartNew offers more options"
+      },
+      {
+        "question": "What is the use of 'lock' statement?",
+        "options": [
+          "Ensures that a block of code runs by only one thread at a time",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Ensures that a block of code runs by only one thread at a time"
+      },
+      {
+        "question": "What is the difference between 'IEnumerable' and 'IEnumerator'?",
+        "options": [
+          "IEnumerable provides an enumerator, IEnumerator performs the enumeration",
+          "IEnumerator provides an enumerator, IEnumerable performs the enumeration",
+          "Both provide enumerators",
+          "Both perform enumeration"
+        ],
+        "answer": "IEnumerable provides an enumerator, IEnumerator performs the enumeration"
+      },
+      {
+        "question": "What is the purpose of 'async void' methods?",
+        "options": [
+          "Used for event handlers",
+          "Used for background tasks",
+          "Used for synchronous methods",
+          "Used for delegates"
+        ],
+        "answer": "Used for event handlers"
+      },
+      {
+        "question": "What is the difference between 'throw' and 'throw ex'?",
+        "options": [
+          "'throw' preserves stack trace, 'throw ex' resets stack trace",
+          "'throw ex' preserves stack trace, 'throw' resets stack trace",
+          "Both reset stack trace",
+          "Both preserve stack trace"
+        ],
+        "answer": "'throw' preserves stack trace, 'throw ex' resets stack trace"
+      },
+      {
+        "question": "What is the use of 'default' keyword?",
+        "options": [
+          "Returns the default value of a type",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Returns the default value of a type"
+      }
+    ],
+    "1": [
+      {
+        "question": "What is the difference between 'interface' and 'delegate'?",
+        "options": [
+          "Interface defines a contract, delegate is a type-safe function pointer",
+          "Delegate defines a contract, interface is a type-safe function pointer",
+          "Both define contracts",
+          "Both are function pointers"
+        ],
+        "answer": "Interface defines a contract, delegate is a type-safe function pointer"
+      },
+      {
+        "question": "What is the use of 'event' keyword?",
+        "options": [
+          "Defines an event in a class",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Defines an event in a class"
+      },
+      {
+        "question": "What is the difference between 'abstract' and 'interface'?",
+        "options": [
+          "Abstract class can have implementation, interface cannot",
+          "Interface can have implementation, abstract class cannot",
+          "Both can have implementation",
+          "Neither can have implementation"
+        ],
+        "answer": "Abstract class can have implementation, interface cannot"
+      },
+      {
+        "question": "What is the use of 'params' keyword?",
+        "options": [
+          "Allows a method to accept a variable number of arguments",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Allows a method to accept a variable number of arguments"
+      },
+      {
+        "question": "What is the difference between 'public', 'private', and 'protected'?",
+        "options": [
+          "Access modifiers controlling visibility",
+          "Data types",
+          "Method types",
+          "Exception types"
+        ],
+        "answer": "Access modifiers controlling visibility"
+      },
+      {
+        "question": "What is the use of 'virtual' keyword?",
+        "options": [
+          "Allows a method to be overridden",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Allows a method to be overridden"
+      },
+      {
+        "question": "What is the difference between 'throw' and 'try-catch'?",
+        "options": [
+          "'throw' raises an exception, 'try-catch' handles exceptions",
+          "'try-catch' raises an exception, 'throw' handles exceptions",
+          "Both raise exceptions",
+          "Both handle exceptions"
+        ],
+        "answer": "'throw' raises an exception, 'try-catch' handles exceptions"
+      },
+      {
+        "question": "What is the use of 'sealed' keyword?",
+        "options": [
+          "Prevents a class from being inherited",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Prevents a class from being inherited"
+      },
+      {
+        "question": "What is the difference between 'stack' and 'heap'?",
+        "options": [
+          "Stack stores value types, heap stores reference types",
+          "Heap stores value types, stack stores reference types",
+          "Both store value types",
+          "Both store reference types"
+        ],
+        "answer": "Stack stores value types, heap stores reference types"
+      },
+      {
+        "question": "What is the use of 'async' keyword?",
+        "options": [
+          "Marks a method as asynchronous",
+          "Declares a variable",
+          "Defines a delegate",
+          "Handles exceptions"
+        ],
+        "answer": "Marks a method as asynchronous"
+      }
+    ],
+    "0": [
+      {
+        "question": "What is the difference between an interface and an abstract class in C#?",
+        "options": [
+          "Interfaces can have implementations, abstract classes cannot",
+          "Abstract classes can have implementations, interfaces cannot",
+          "Both can have implementations",
+          "Neither can have implementations"
+        ],
+        "answer": "Abstract classes can have implementations, interfaces cannot"
+      },
+      {
+        "question": "How does C# implement multiple inheritance?",
+        "options": [
+          "Using multiple base classes",
+          "Using interfaces",
+          "Using abstract classes",
+          "C# does not support multiple inheritance"
+        ],
+        "answer": "Using interfaces"
+      },
+      {
+        "question": "What is the purpose of the 'yield' keyword in C#?",
+        "options": [
+          "To return multiple values from a method",
+          "To pause and resume an iterator",
+          "To declare a variable",
+          "To handle exceptions"
+        ],
+        "answer": "To pause and resume an iterator"
+      },
+      {
+        "question": "What is covariance in C#?",
+        "options": [
+          "Ability to use a more derived type than originally specified",
+          "Ability to use a less derived type than originally specified",
+          "Ability to change method signatures",
+          "Ability to overload operators"
+        ],
+        "answer": "Ability to use a more derived type than originally specified"
+      },
+      {
+        "question": "What is the difference between 'ref' and 'out' parameters in C#?",
+        "options": [
+          "'ref' requires initialization before passing, 'out' does not",
+          "'out' requires initialization before passing, 'ref' does not",
+          "Both require initialization",
+          "Neither require initialization"
+        ],
+        "answer": "'ref' requires initialization before passing, 'out' does not"
+      },
+      {
+        "question": "What is the purpose of the 'async' keyword in C#?",
+        "options": [
+          "To mark a method as asynchronous",
+          "To declare a variable",
+          "To handle exceptions",
+          "To define a delegate"
+        ],
+        "answer": "To mark a method as asynchronous"
+      },
+      {
+        "question": "What is boxing in C#?",
+        "options": [
+          "Converting a value type to an object type",
+          "Converting an object type to a value type",
+          "Wrapping a method in a delegate",
+          "Creating a new instance of a class"
+        ],
+        "answer": "Converting a value type to an object type"
+      },
+      {
+        "question": "What is the difference between 'Task' and 'Thread' in C#?",
+        "options": [
+          "Task is a higher-level abstraction for asynchronous operations",
+          "Thread is a higher-level abstraction for asynchronous operations",
+          "Both are the same",
+          "Task is used for UI, Thread for background"
+        ],
+        "answer": "Task is a higher-level abstraction for asynchronous operations"
+      },
+      {
+        "question": "What is a delegate in C#?",
+        "options": [
+          "A type-safe function pointer",
+          "A variable",
+          "A class",
+          "An interface"
+        ],
+        "answer": "A type-safe function pointer"
+      },
+      {
+        "question": "What is the difference between '=='' and 'Equals()' in C#?",
+        "options": [
+          "'==' compares references, 'Equals()' compares values",
+          "'==' compares values, 'Equals()' compares references",
+          "Both compare references",
+          "Both compare values"
+        ],
+        "answer": "'==' compares references, 'Equals()' compares values"
+      }
+    ]
+  }
+}
+

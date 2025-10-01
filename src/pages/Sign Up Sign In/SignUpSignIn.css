@@ -1,0 +1,189 @@
+/* Page background */
+body {
+    background-color: #6C63FF; /* Purple */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container styling */
+.container {
+    max-width: 410px;
+    margin: 10px;
+    align-content: center;
+    padding: 50px;
+    background-color: #000000; /* Black */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(57, 255, 20, 0.3);
+}
+.main-container{
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Heading styling */
+h2 {
+    text-align: center;
+    color: #39FF14; /* Neon green */
+}
+
+/* Input field styling */
+.input-field {
+    width: 99%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #39FF14;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: #39FF14;
+}
+
+/* Button styling */
+.submit-button {
+    width: 103%;
+    padding: 10px;
+    background-color: #39FF14; /* Neon green */
+    color: #000000; /* Black text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-button:hover {
+    background-color: #32e010;
+}
+
+/* Role selection styling */
+.role-selection {
+    margin: 10px 0;
+    text-align: center;
+    color: #39FF14;
+}
+
+/* Social login section */
+.social-login {
+    text-align: center;
+    margin-top: 20px;
+    color: white; /* Make "Don't have an account?" visible */
+}
+
+.social-buttons-container {
+    display: flex;
+    justify-content: center; /* Center align buttons in a row */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+
+
+/* Social button base style */
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 5px; /* Adjust margin for spacing */
+    width: 415px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000000; /* Black text for visibility */
+}
+
+
+.social-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Individual social button colors */
+.social-button.google {
+    background-color: #FFFFFF;
+    border-color: #dadce0;
+}
+
+.social-button.linkedin {
+    background-color: #0077B5;
+    color: #FFFFFF;
+    border-color: #0077B5;
+}
+
+.social-button.github {
+    background-color: #333333;
+    color: #FFFFFF;
+    border-color: #333333;
+}
+
+.social-button.facebook {
+    background-color: #1877F2;
+    color: #FFFFFF;
+    border-color: #1877F2;
+}
+
+.social-button img {
+    margin-right: 8px;
+    max-width: 24px;
+    height: auto;
+}
+
+/* Link styling */
+a {
+    color: #39FF14;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.account-text {
+    color: white; /* Makes the paragraph text white */
+}
+
+.account-text a {
+    color: #39FF14; /* Neon green for the link */
+    text-decoration: none;
+}
+
+.account-text a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+    background-color: #ff4444;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Loading spinner styling */
+.loading-spinner {
+    text-align: center;
+    color: #39FF14;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Disabled state for buttons */
+.submit-button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+
+

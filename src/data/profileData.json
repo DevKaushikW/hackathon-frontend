@@ -1,0 +1,30 @@
+{
+  "username": "@avgfcgjfk",
+  "phone": "+91-8957896935",
+  "location": "Pune",
+  "resume": "https://example.com/abc_resume.pdf",
+  "badges": ["Java ★★★★★", "C Language ★"],
+  "certifications": ["C# (Basic) - Verified"],
+  "workExperience": [
+    {
+      "title": "Associate Software Engineer",
+      "company": "Tech Mahindra",
+      "duration": "August 2023 – Present",
+      "location": "Pune",
+      "responsibilities": [
+        "Implemented Toggle functionality for switching between NMI and DOF orders.",
+        "Developed functions for managing order activation, history retrieval, and caching.",
+        "Created unit tests and mock APIs to simulate DOF order history activation flows."
+      ]
+    }
+  ],
+  "skills": [
+    "c", "c++", "c#", "java", "asp.net", "react", "spring boot", "spring jpa",
+    "sql", "mysql", "postman", "vs code", "visual studio", "docker",
+    "RESTful API", "web api", "servlet", "CSS", "Data Structure"
+  ],
+  "links": [
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/abc-xyz-b76b8a1a0/" },
+    { "label": "GitHub", "url": "https://github.com/abcxyz217" }
+  ]
+}
