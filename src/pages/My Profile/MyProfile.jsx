@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useProfileEffects, { handleSaveClick  } from './hooks/useProfileEffects';
+import useProfileEffects, { handleFullProfileSave } from './hooks/useProfileEffects';
 import './MyProfile.css';
 
 import Header from '../../components/Header';
@@ -41,7 +41,8 @@ import {
   handleRemoveResponsibility,
   handleWorkExperienceSave,
   handleWorkExperienceCancel,
-  handleAddWorkExperienceSave
+  handleAddWorkExperienceSave,
+  handleRemoveWorkExperience
 } from './handlers/workExperienceHandlers';
 
 import { handleEdit } from './handlers/editDispatcher';
@@ -110,13 +111,32 @@ const MyProfile = () => {
                 value={editedName}
                 onChange={(e) => handleNameChange(e, setEditedName)}
               />
-              <button onClick={() => handleSaveClick(editedName, setProfile, setIsEditingName)}>Save</button>
+              <button onClick={() => handleFullProfileSave(
+                profile,
+                editedName,
+                editedEmails,
+                editedPhones,
+                editedLocation,
+                editedProvider,
+                editedRole,
+                editedResume,
+                setProfile,
+                setIsEditingName,
+                setIsEditingPersonalInfo,
+                setIsEditingResume,
+                setEditingWorkExperienceIndex,
+                null,
+                false,
+                null,
+                null,
+                null
+              )}>Save</button>
               <button onClick={() => handleNameCancel(profile, setEditedName, setIsEditingName)}>Cancel</button>
             </>
           ) : (
             <>
               <p>{profile.name}</p>
-              <button onClick={() => handleEdit('Name', setIsEditingName, setIsEditingPersonalInfo, setIsEditingResume, (index) => {})}>Edit</button>
+              <button onClick={() => handleEdit('Name', setIsEditingName, setIsEditingPersonalInfo, setIsEditingResume, (index) => { })}>Edit</button>
             </>
           )}
         </section>
@@ -131,53 +151,181 @@ const MyProfile = () => {
                   <input
                     type="email"
                     value={email}
+                    onChange={(e) => handleEmailChange(index, e.target.value, editedEmails, setEditedEmails)}
+                    placeholder="Email"
                   />
+                  {/*Show Save for newly added email */}
+                  {email.trim() !== '' && index !== 0 && (
+                    <button
+                      onClick={() =>
+                        handleFullProfileSave(
+                          profile,
+                          editedName,
+                          editedEmails,
+                          editedPhones,
+                          editedLocation,
+                          editedProvider,
+                          editedRole,
+                          editedResume,
+                          setProfile,
+                          setIsEditingName,
+                          setIsEditingPersonalInfo,
+                          setIsEditingResume,
+                          setEditingWorkExperienceIndex,
+                          null,
+                          false,
+                          null,
+                          null,
+                          null
+                        )
+                      }
+                    >Save</button>
+                  )}
+                  {/*Show remove only for secondary emails */}
+                  {email.trim() !== '' && index !== 0 && (
+                    <button
+                      onClick={() =>
+                        handleRemoveEmail(index, editedEmails, setEditedEmails)
+                      }
+                    >Remove</button>
+                  )}
+                  {/* Show cancel for newly added empty email */}
+                  {email.trim() === '' && (
+                    <button
+                      onClick={() =>
+                        handleRemoveEmail(index, editedEmails, setEditedEmails)
+                      }
+                    >Cancel</button>
+                  )}
                 </div>
               ))}
               <p><button onClick={() => handleAddEmail(editedEmails, setEditedEmails)}>Add Email</button></p>
 
+              {editedPhones.length === 0 && (
+                <input
+                  type="text"
+                  value=""
+                  onChange={(e) =>
+                    handlePhoneChange(0, e.target.value, editedPhones, setEditedPhones)
+                  }
+                  placeholder="Phone"
+                />
+              )}
               {editedPhones.map((phone, index) => (
                 <div key={index}>
                   <input
                     type="text"
                     value={phone}
-                    onChange={(e) => handlePhoneChange(index, e.target.value, editedPhones, setEditedPhones)}
-                    placeholder='Phone'
+                    onChange={(e) =>
+                      handlePhoneChange(index, e.target.value, editedPhones, setEditedPhones)
+                    }
+                    placeholder="Phone"
                   />
-                  <p><button onClick={() => handleRemovePhone(index, editedPhones, setEditedPhones)}>Remove</button></p>
+                  {/* Show Save for newly added phone */}
+                  {phone.trim() !== '' && (
+                    <button
+                      onClick={() =>
+                        handleFullProfileSave(
+                          profile,
+                          editedName,
+                          editedEmails,
+                          editedPhones,
+                          editedLocation,
+                          editedProvider,
+                          editedRole,
+                          editedResume,
+                          setProfile,
+                          setIsEditingName,
+                          setIsEditingPersonalInfo,
+                          setIsEditingResume,
+                          setEditingWorkExperienceIndex,
+                          null,
+                          false,
+                          null,
+                          null,
+                          null
+                        )
+                      }
+                    >Save</button>
+                  )}
+                  {/* Show remove only if phone has value */}
+                  {phone.trim() !== '' && (
+                    <p><button onClick={() => handleRemovePhone(index, editedPhones, setEditedPhones)}>
+                      Remove
+                    </button></p>
+                  )}
+                  {/* Show cancel if phone is empty */}
+                  {phone.trim() === '' && (
+                    <button
+                      onClick={() =>
+                        handleRemovePhone(index, editedPhones, setEditedPhones)
+                      }
+                    >Cancel</button>
+                  )}
                 </div>
               ))}
-              <p><button onClick={() => handleAddPhone(editedPhones, setEditedPhones)}>Add Phone</button></p>
+              <p><button onClick={() => handleAddPhone(editedPhones, setEditedPhones)}>
+                Add Phone
+              </button></p>
 
               <input
                 type="text"
-                value={editedLocation}
+                value={editedLocation || ''}
                 onChange={(e) => handleLocationChange(e.target.value, setEditedLocation)}
                 placeholder="Location"
               />
               <input
                 type="text"
-                value={editedProvider}
+                value={editedProvider || ''}
                 onChange={(e) => handleProviderChange(e.target.value, setEditedProvider)}
                 placeholder="Provider"
               />
               <input
                 type="text"
-                value={editedRole}
+                value={editedRole || ''}
                 onChange={(e) => handleRoleChange(e.target.value, setEditedRole)}
                 placeholder="Role"
               />
-              <button onClick={() => handleSaveClick(editedEmails, editedPhones, editedLocation, editedProvider, editedRole, setProfile, setIsEditingPersonalInfo)}>Save</button>
+              <button onClick={() => handleFullProfileSave(
+                profile,
+                editedName,
+                editedEmails,
+                editedPhones,
+                editedLocation,
+                editedProvider,
+                editedRole,
+                editedResume,
+                setProfile,
+                setIsEditingName,
+                setIsEditingPersonalInfo,
+                setIsEditingResume,
+                setEditingWorkExperienceIndex,
+                null,
+                false,
+                null,
+                null,
+                null
+              )}>Save</button>
               <button onClick={() => handlePersonalInfoCancel(profile, setEditedEmails, setEditedPhones, setEditedLocation, setEditedProvider, setEditedRole, setIsEditingPersonalInfo)}>Cancel</button>
             </>
           ) : (
             <>
               <p>Email: {profile.email}</p>
+
+              {profile.secondaryEmails?.length > 0 && (
+                <div>
+                  Secondary Emails: {profile.secondaryEmails.join(', ')}
+                </div>
+              )}
+
               <p>Phone: {profile.phone}</p>
+              {profile.secondaryPhones?.length > 0 && (
+                <div>Secondary Phones: {profile.secondaryPhones.join(', ')}</div>
+              )}
               <p>Location: {profile.location}</p>
               <p>Provider: {profile.provider}</p>
               <p>Role: {profile.role}</p>
-              <button onClick={() => handleEdit('Personal Information', setIsEditingName, setIsEditingPersonalInfo, setIsEditingResume, (index) => {})}>Edit</button>
+              <button onClick={() => handleEdit('Personal Information', setIsEditingName, setIsEditingPersonalInfo, setIsEditingResume, (index) => { })}>Edit</button>
             </>
           )}
         </section>
@@ -189,7 +337,26 @@ const MyProfile = () => {
             <>
               <input type="file" accept="application/pdf" onChange={(e) => handleResumeUpload(e, setEditedResume)} />
               {editedResume && <iframe src={editedResume} width="100%" height="400px" title="Resume Preview" />}
-              <button onClick={() => handleResumeSave(editedResume, setProfile, setIsEditingResume)}>Save</button>
+              <button onClick={() => handleFullProfileSave(
+                profile,
+                editedName,
+                editedEmails,
+                editedPhones,
+                editedLocation,
+                editedProvider,
+                editedRole,
+                editedResume,
+                setProfile,
+                setIsEditingName,
+                setIsEditingPersonalInfo,
+                setIsEditingResume,
+                setEditingWorkExperienceIndex,
+                null,
+                false,
+                null,
+                null,
+                null
+              )}>Save</button>
               <button onClick={() => handleResumeCancel(profile, setEditedResume, setIsEditingResume)}>Cancel</button>
               <button onClick={() => handleResumeDelete(setEditedResume)}>Delete</button>
             </>
@@ -200,7 +367,7 @@ const MyProfile = () => {
               ) : (
                 <p>No resume uploaded.</p>
               )}
-              <button onClick={() => handleEdit('Resume', setIsEditingName, setIsEditingPersonalInfo, setIsEditingResume, (index) => {})}>Edit</button>
+              <button onClick={() => handleEdit('Resume', setIsEditingName, setIsEditingPersonalInfo, setIsEditingResume, (index) => { })}>Edit</button>
             </>
           )}
         </section>
@@ -242,12 +409,40 @@ const MyProfile = () => {
                         value={resp}
                         onChange={(e) => handleResponsibilityChange(i, e.target.value, editedWorkExperience, setEditedWorkExperience)}
                       />
-                      <p><button onClick={() => handleRemoveResponsibility(i, editedWorkExperience, setEditedWorkExperience)}>Remove</button></p>
+                      <p><button onClick={() => handleRemoveResponsibility(i, editedWorkExperience, setEditedWorkExperience)}>Remove Responsibility</button></p>
                     </div>
                   ))}
                   <button onClick={() => handleAddResponsibility(editedWorkExperience, setEditedWorkExperience)}>Add Responsibility</button>
-                  <button onClick={() => handleWorkExperienceSave(editedWorkExperience, editingWorkExperienceIndex, setProfile, setEditingWorkExperienceIndex, setEditedWorkExperience)}>Save</button>
+                  <button onClick={() => {
+                    const updatedWorkExperienceList = [...profile.workExperience];
+                    updatedWorkExperienceList[editingWorkExperienceIndex] = editedWorkExperience;
+
+                    handleFullProfileSave(
+                      { ...profile, workExperience: updatedWorkExperienceList },
+                      editedName,
+                      editedEmails,
+                      editedPhones,
+                      editedLocation,
+                      editedProvider,
+                      editedRole,
+                      editedResume,
+                      setProfile,
+                      setIsEditingName,
+                      setIsEditingPersonalInfo,
+                      setIsEditingResume,
+                      setEditingWorkExperienceIndex,
+                      null,
+                      false,
+                      null,
+                      setIsAddingWorkExperience,
+                      setNewWorkExperience
+                    );
+                  }}>Save</button>
                   <button onClick={() => handleWorkExperienceCancel(setEditingWorkExperienceIndex, setEditedWorkExperience)}>Cancel</button>
+                  <button onClick={() => handleRemoveWorkExperience(index, profile, setProfile, setEditingWorkExperienceIndex, setEditedWorkExperience)}>
+                    Remove Work Experience
+                  </button>
+
                 </>
               ) : (
                 <>
@@ -258,55 +453,72 @@ const MyProfile = () => {
                   <ul>
                     {exp.responsibilities.map((r, i) => <li key={i}>{r}</li>)}
                   </ul>
-                  <button onClick={() => handleEdit(`Work Experience ${index + 1}`, setIsEditingName, setIsEditingPersonalInfo, setIsEditingResume, (i) => handleWorkExperienceEdit(i, profile, setEditingWorkExperienceIndex, setEditedWorkExperience))}>Edit</button>
+                  <p><button onClick={() => handleEdit(`Work Experience ${index + 1}`, setIsEditingName, setIsEditingPersonalInfo, setIsEditingResume, (i) => handleWorkExperienceEdit(i, profile, setEditingWorkExperienceIndex, setEditedWorkExperience))}>Edit</button></p>
                 </>
               )}
             </div>
           ))}
 
           {isAddingWorkExperience && (
-            <div className="add-work-experience-modal">
+            <>
               <input
                 type="text"
                 value={newWorkExperience.title}
-                onChange={(e) => setNewWorkExperience({ ...newWorkExperience, title: e.target.value })}
+                onChange={(e) =>
+                  setNewWorkExperience({ ...newWorkExperience, title: e.target.value })
+                }
                 placeholder="Title"
               />
               <input
                 type="text"
                 value={newWorkExperience.company}
-                onChange={(e) => setNewWorkExperience({ ...newWorkExperience, company: e.target.value })}
+                onChange={(e) =>
+                  setNewWorkExperience({ ...newWorkExperience, company: e.target.value })
+                }
                 placeholder="Company"
               />
               <input
                 type="text"
                 value={newWorkExperience.location}
-                onChange={(e) => setNewWorkExperience({ ...newWorkExperience, location: e.target.value })}
+                onChange={(e) =>
+                  setNewWorkExperience({ ...newWorkExperience, location: e.target.value })
+                }
                 placeholder="Location"
               />
               <input
                 type="date"
                 value={newWorkExperience.startDate}
-                onChange={(e) => setNewWorkExperience({ ...newWorkExperience, startDate: e.target.value })}
+                onChange={(e) =>
+                  setNewWorkExperience({ ...newWorkExperience, startDate: e.target.value })
+                }
               />
               <input
                 type="date"
                 value={newWorkExperience.endDate}
-                onChange={(e) => setNewWorkExperience({ ...newWorkExperience, endDate: e.target.value })}
+                onChange={(e) =>
+                  setNewWorkExperience({ ...newWorkExperience, endDate: e.target.value })
+                }
               />
               <label>
                 <input
                   type="checkbox"
                   checked={newWorkExperience.currentlyWorking}
-                  onChange={(e) => setNewWorkExperience({ ...newWorkExperience, currentlyWorking: e.target.checked })}
+                  onChange={(e) =>
+                    setNewWorkExperience({
+                      ...newWorkExperience,
+                      currentlyWorking: e.target.checked
+                    })
+                  }
                 />
                 Currently Working
               </label>
-              <textarea
+              <p><textarea
                 value={newWorkExperience.description}
-                onChange={(e) => setNewWorkExperience({ ...newWorkExperience, description: e.target.value })}
+                onChange={(e) =>
+                  setNewWorkExperience({ ...newWorkExperience, description: e.target.value })
+                }
                 placeholder="Description"
-              />
+              /></p>
               {newWorkExperience.responsibilities.map((resp, i) => (
                 <div key={i}>
                   <input
@@ -318,16 +530,81 @@ const MyProfile = () => {
                       setNewWorkExperience({ ...newWorkExperience, responsibilities: updated });
                     }}
                   />
-                  <button onClick={() => {
-                    const updated = newWorkExperience.responsibilities.filter((_, idx) => idx !== i);
-                    setNewWorkExperience({ ...newWorkExperience, responsibilities: updated });
-                  }}>Remove</button>
+                  <button
+                    onClick={() => {
+                      const updated = newWorkExperience.responsibilities.filter((_, idx) => idx !== i);
+                      setNewWorkExperience({ ...newWorkExperience, responsibilities: updated });
+                    }}
+                  >
+                    Remove
+                  </button>
                 </div>
               ))}
-              <button onClick={() => setNewWorkExperience({ ...newWorkExperience, responsibilities: [...newWorkExperience.responsibilities, ''] })}>Add Responsibility</button>
-              <button onClick={() => handleAddWorkExperienceSave(newWorkExperience, setProfile, setIsAddingWorkExperience, setNewWorkExperience)}>Save</button>
+              <button
+                onClick={() =>
+                  setNewWorkExperience({
+                    ...newWorkExperience,
+                    responsibilities: [...newWorkExperience.responsibilities, '']
+                  })
+                }
+              >
+                Add Responsibility
+              </button>
+
+              {/* Save Button with Fix */}
+              <button
+                onClick={() => {
+                  const duration = `${newWorkExperience.startDate} - ${newWorkExperience.currentlyWorking ? 'Present' : newWorkExperience.endDate
+                    }`;
+                  const workExperienceToAdd = { ...newWorkExperience, duration };
+                  const updatedWorkExperienceList = [...(profile.workExperience || []), workExperienceToAdd];
+
+                  setProfile((prev) => ({
+                    ...prev,
+                    workExperience: updatedWorkExperienceList
+                  }));
+
+                  handleFullProfileSave(
+                    { ...profile, workExperience: updatedWorkExperienceList },
+                    editedName,
+                    editedEmails,
+                    editedPhones,
+                    editedLocation,
+                    editedProvider,
+                    editedRole,
+                    editedResume,
+                    setProfile,
+                    setIsEditingName,
+                    setIsEditingPersonalInfo,
+                    setIsEditingResume,
+                    setEditingWorkExperienceIndex,
+                    null,
+                    false,
+                    null,
+                    null,
+                    null
+                  );
+
+                  setIsAddingWorkExperience(false);
+                  setNewWorkExperience({
+                    title: '',
+                    company: '',
+                    role: '',
+                    location: '',
+                    currentlyWorking: false,
+                    startDate: '',
+                    endDate: '',
+                    description: '',
+                    responsibilities: [''],
+                    duration: ''
+                  });
+                }}
+              >
+                Save
+              </button>
+
               <button onClick={() => setIsAddingWorkExperience(false)}>Cancel</button>
-            </div>
+            </>
           )}
           <p><button onClick={() => setIsAddingWorkExperience(true)}>Add Work Experience</button></p>
         </section>
