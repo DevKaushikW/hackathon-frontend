@@ -3,7 +3,8 @@ const handleWorkExperienceEdit = (index, profile, setEditingWorkExperienceIndex,
   const workExp = profile.workExperience[index];
   setEditedWorkExperience({
     ...workExp,
-    title: workExp.title || workExp.role || ''
+    title: workExp.title || workExp.role || '',
+    responsibilities: workExp.responsibilities?.filter(r => r.trim() !== '') || []
   });
 };
 
@@ -89,6 +90,13 @@ const handleAddWorkExperienceSave = (
   });
 };
 
+const handleRemoveWorkExperience = (index, profile, setProfile, setEditingWorkExperienceIndex, setEditedWorkExperience) => {
+  const updatedList = profile.workExperience.filter((_, i) => i !== index);
+  setProfile(prev => ({ ...prev, workExperience: updatedList }));
+  setEditingWorkExperienceIndex(null);
+  setEditedWorkExperience(null);
+};
+
 export {
   handleWorkExperienceEdit,
   handleWorkExperienceChange,
@@ -97,5 +105,6 @@ export {
   handleRemoveResponsibility,
   handleWorkExperienceSave,
   handleWorkExperienceCancel,
-  handleAddWorkExperienceSave
+  handleAddWorkExperienceSave,
+  handleRemoveWorkExperience
 };
